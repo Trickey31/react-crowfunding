@@ -4,5 +4,6 @@
 @layer base {
   body {
     @apply font-primary text-base;
+    max-width: 1440px;
   }
 }
