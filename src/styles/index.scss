@@ -1,9 +1,16 @@
+@import "reset";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @layer base {
   body {
     @apply font-primary text-base;
-    max-width: 1440px;
   }
+}
+body {
+  margin: 0 auto;
+  user-select: none;
+}
+input:focus + .error-input {
+  display: none;
 }
