@@ -4,7 +4,7 @@ import Input from "./Input";
 import PropTypes from "prop-types";
 import useToggleValue from "hooks/useToggleValue";
 
-const InputTogglePassword = ({ control, error = "" }) => {
+const InputTogglePassword = ({ control, error = "", placeholder = "" }) => {
   const { value: togglePassword, handleToggleValue: handleTogglePassword } =
     useToggleValue();
   return (
@@ -12,7 +12,7 @@ const InputTogglePassword = ({ control, error = "" }) => {
       <Input
         name="password"
         type={togglePassword ? "text" : "password"}
-        placeholder="Create a password"
+        placeholder={placeholder}
         control={control}
         error={error}
         hasIcon
@@ -29,6 +29,7 @@ const InputTogglePassword = ({ control, error = "" }) => {
 InputTogglePassword.propTypes = {
   control: PropTypes.any.isRequired,
   error: PropTypes.string,
+  placeholder: PropTypes.string,
 };
 
 export default InputTogglePassword;
