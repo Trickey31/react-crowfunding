@@ -6,12 +6,21 @@ import LayoutAuthentication from "layout/LayoutAuthentication";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+const schema = yup.object({
+  email: yup.string().email("").required("Please enter your email"),
+  password: yup.string().required("Please enter your password"),
+});
 
 const SignInPage = () => {
   const {
     control,
+    handleSubmit,
     formState: { errors },
-  } = useForm({});
+  } = useForm({ resolver: yupResolver(schema), mode: "onSubmit" });
+  const handleSignIn = (values) => {};
   return (
     <LayoutAuthentication heading="Welcome Back!">
       <p className="text-sm text-neutralText3 font-normal mb-[25px] lg:mb-[30px] text-center">
@@ -21,7 +30,7 @@ const SignInPage = () => {
         </Link>
       </p>
       <ButtonGoogle text="Sign in with Google"></ButtonGoogle>
-      <form>
+      <form onSubmit={handleSubmit(handleSignIn)}>
         <Field>
           <Label htmlFor="email">Email *</Label>
           <Input
@@ -37,11 +46,14 @@ const SignInPage = () => {
           <InputTogglePassword
             control={control}
             error={errors.password?.message}
+            placeholder="Enter Password"
           ></InputTogglePassword>
         </Field>
-        <span className="text-sm text-primary font-medium">
-          Forgot password?
-        </span>
+        <div className="text-right">
+          <span className="inline-block text-sm text-primary font-medium">
+            Forgot password?
+          </span>
+        </div>
         <Button type="submit" className="w-full bg-primary mt-5">
           Sign In
         </Button>
