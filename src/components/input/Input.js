@@ -19,10 +19,10 @@ const Input = ({
         id={name}
         type={type}
         placeholder={error.length > 0 ? "" : placeholder}
-        className={`w-full border rounded-[10px] px-[25px] py-[15px] text-sm text-neutralText1 font-medium dark:text-white dark:bg-transparent placeholder:text-neutralText4 placeholder:font-medium dark:placeholder:text-neutralText3 ${
+        className={`w-full border rounded-[10px] px-[25px] py-[15px] text-sm font-medium dark:text-white dark:bg-transparent placeholder:text-neutralText4 placeholder:font-medium dark:placeholder:text-neutralText3 ${
           error.length > 0
-            ? "border-error"
-            : "border-whiteStroke dark:border-darkStroke"
+            ? "border-error text-error"
+            : "text-neutralText1 border-whiteStroke dark:border-darkStroke"
         } ${hasIcon ? "py-5 pr-[60px] pl-5" : ""}`}
         {...field}
         {...props}
