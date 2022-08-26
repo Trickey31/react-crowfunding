@@ -6,7 +6,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import LayoutAuthentication from "../layout/LayoutAuthentication";
 import { useForm } from "react-hook-form";
-import { Button } from "components/button";
+import { Button, ButtonGoogle } from "components/button";
 import { useState } from "react";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -43,12 +43,7 @@ const SignUpPage = () => {
           Sign in
         </Link>
       </p>
-      <button className="flex items-center justify-center gap-[10px] w-full border border-whiteStroke dark:border-darkStroke rounded-[10px] py-[13px] mb-5">
-        <img srcSet="./google.png 2x" alt="icon-google" />
-        <span className="font-semibold text-neutralText2 dark:text-white">
-          Sign up with Google
-        </span>
-      </button>
+      <ButtonGoogle text="Sign up with Google"></ButtonGoogle>
       <p className="text-xs text-neutralText2 dark:text-white text-center font-normal mb-[15px] lg:mb-[30px]">
         Or sign up with email
       </p>
