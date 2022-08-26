@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import LayoutAuthentication from "../layout/LayoutAuthentication";
 import { useForm } from "react-hook-form";
 import { Button, ButtonGoogle } from "components/button";
-import { useState } from "react";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { withErrorBoundary } from "react-error-boundary";
@@ -73,6 +72,7 @@ const SignUpPage = () => {
           <InputTogglePassword
             control={control}
             error={errors.password?.message}
+            placeholder="Create a password"
           ></InputTogglePassword>
         </Field>
         <div className="flex items-start gap-5 mb-5">
