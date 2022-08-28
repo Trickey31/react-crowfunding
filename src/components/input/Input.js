@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useController } from "react-hook-form";
+import { withErrorBoundary } from "react-error-boundary";
+import ErrorComponent from "components/error/ErrorComponent";
 
 const Input = ({
   name = "",
@@ -53,4 +55,6 @@ Input.propTypes = {
   error: PropTypes.string,
 };
 
-export default Input;
+export default withErrorBoundary(Input, {
+  FallbackComponent: ErrorComponent,
+});

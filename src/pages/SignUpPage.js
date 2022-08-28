@@ -97,5 +97,5 @@ const SignUpPage = () => {
 };
 
 export default withErrorBoundary(SignUpPage, {
-  FallbackComponent: <ErrorComponent></ErrorComponent>,
+  FallbackComponent: ErrorComponent,
 });
