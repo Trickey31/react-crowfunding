@@ -65,7 +65,7 @@ const DashboardSidebar = () => {
               : `${navlinkClass} text-icon`
           }
         >
-          <span className={``}>{item.icon}</span>
+          <span>{item.icon}</span>
           <span className="md:hidden">{item.title}</span>
         </NavLink>
       ))}
