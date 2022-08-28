@@ -4,7 +4,7 @@ import React from "react";
 
 const LayoutDashboard = ({ children }) => {
   return (
-    <div>
+    <div className="min-h-screen bg-liteBG p-10">
       <DashboardTopbar></DashboardTopbar>
       <div>
         <DashboardSidebar></DashboardSidebar>
