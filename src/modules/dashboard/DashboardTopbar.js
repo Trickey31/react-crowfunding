@@ -1,9 +1,9 @@
 import { Button } from "components/button";
 import React from "react";
 import { Link } from "react-router-dom";
-import DashboardAvatar from "./DashboardAvatar";
-import DashboardFund from "./DashboardFund";
-import DashboardSearch from "./DashboardSearch";
+import DashboardAvatar from "./parts/DashboardAvatar";
+import DashboardFund from "./parts/DashboardFund";
+import DashboardSearch from "./parts/DashboardSearch";
 
 const DashboardTopbar = () => {
   return (
