@@ -47,7 +47,7 @@ const CampaignPage = () => {
             </a>
           </div>
         </div>
-        <Button type="button" className="bg-[#EEEAFD] text-secondary px-[30px]">
+        <Button kind="ghost" href="/start-campaign" className="px-[30px]">
           Create campaign
         </Button>
       </div>
@@ -59,10 +59,7 @@ const CampaignPage = () => {
         <CampaignFeature></CampaignFeature>
       </CampaignGrid>
       <Gap></Gap>
-      <Button
-        type="button"
-        className="bg-[#EEEAFD] text-secondary mx-auto px-14"
-      >
+      <Button kind="ghost" className="mx-auto px-14">
         See more+
       </Button>
     </>
