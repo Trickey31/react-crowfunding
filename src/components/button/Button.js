@@ -13,7 +13,7 @@ const Button = ({
   return (
     <button
       type={type}
-      className={`py-[13px] text-white font-semibold rounded-[10px] flex items-center justify-center min-h-[52px] ${
+      className={`py-[13px] font-semibold rounded-[10px] flex items-center justify-center min-h-[52px] ${
         !!isLoading ? "opacity-50" : ""
       } ${className}`}
       {...props}
