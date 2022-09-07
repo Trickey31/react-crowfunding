@@ -9,7 +9,6 @@ import "react-quill/dist/quill.snow.css";
 import ImageUploader from "quill-image-uploader";
 import { useState } from "react";
 import Gap from "components/common/Gap";
-import Title from "components/common/Title";
 import { IconFunds } from "components/icons";
 import FormRow from "components/common/FormRow";
 import { Button } from "components/button";
