@@ -35,3 +35,13 @@ input:focus + .error-input {
     @apply text-neutralText4 not-italic;
   }
 }
+.ReactModal__Body--open {
+  overflow: hidden;
+}
+.scroll-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scroll-hidden::-webkit-scrollbar {
+  display: none;
+}
