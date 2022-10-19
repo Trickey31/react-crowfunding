@@ -7,6 +7,7 @@ const LayoutDashboard = lazy(() => import("layout/LayoutDashboard"));
 const DashboardPage = lazy(() => import("pages/DashboardPage"));
 const CampaignPage = lazy(() => import("pages/CampaignPage"));
 const StartCampaignPage = lazy(() => import("pages/StartCampaignPage"));
+const CampaignView = lazy(() => import("modules/campaign/CampaignView"));
 
 function App() {
   return (
@@ -21,6 +22,10 @@ function App() {
           <Route
             path="/start-campaign"
             element={<StartCampaignPage></StartCampaignPage>}
+          ></Route>
+          <Route
+            path="/campaign/:slug"
+            element={<CampaignView></CampaignView>}
           ></Route>
         </Route>
         <Route path="/sign-up" element={<SignUpPage></SignUpPage>}></Route>

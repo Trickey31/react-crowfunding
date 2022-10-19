@@ -47,7 +47,7 @@ const Input = ({
 
 Input.propTypes = {
   control: PropTypes.any.isRequired,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   type: PropTypes.string,
   placeholder: PropTypes.string,
   hasIcon: PropTypes.bool,
