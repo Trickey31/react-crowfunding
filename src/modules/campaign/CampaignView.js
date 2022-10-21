@@ -5,7 +5,6 @@ import { v4 } from "uuid";
 import CampaignGrid from "./CampaignGrid";
 import CampaignItem from "./CampaignItem";
 import CampaignPerk from "./CampaignPerk";
-import CampaignStory from "./CampaignStory";
 import CampaignSupport from "./CampaignSupport";
 import CampCategory from "./parts/CampCategory";
 import CampDesc from "./parts/CampDesc";
@@ -18,9 +17,9 @@ const CampaignView = () => {
   return (
     <>
       <div
-        className="h-[140px] bg-cover bg-no-repeat bg-center bg-opacity-40 rounded-[25px] flex items-center justify-center text-white text-[40px] font-bold mb-10"
+        className="gradient-banner h-[140px] bg-cover bg-no-repeat bg-center bg-opacity-40 rounded-[25px] flex items-center justify-center text-white text-[40px] font-bold mb-10"
         style={{
-          backgroundImage: `linear-gradient(179.14deg, rgba(32, 18, 63, 0) -7.14%, #000000 87.01%), url(/banner.png)`,
+          backgroundImage: `url(/banner.png)`,
         }}
       >
         <h1>Education</h1>
@@ -71,16 +70,17 @@ const CampaignView = () => {
         </div>
         <Button className="px-9">Back this project</Button>
       </div>
-      <div className="grid grid-cols-[1.2fr,0.9fr] gap-[124px] mb-[70px] max-w-[1170px] mx-auto">
+      <div className="grid grid-cols-[1.2fr,0.9fr] gap-[124px] mb-[70px] px-8">
         <div>
-          <h3 className="text-lg text-neutralText1 font-semibold mb-5">
+          <h2 className="text-lg text-neutralText1 font-semibold mb-5">
             STORY
-          </h3>
-          <div>
+          </h2>
+          <div className="bg-white w-full"></div>
+          {/* <div>
             <CampaignStory></CampaignStory>
             <CampaignStory></CampaignStory>
             <CampaignStory></CampaignStory>
-          </div>
+          </div> */}
         </div>
         <div>
           <CampaignSupport></CampaignSupport>

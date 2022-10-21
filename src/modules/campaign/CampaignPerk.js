@@ -1,10 +1,11 @@
 import { Button } from "components/button";
 import React from "react";
+import CampTitle from "./parts/CampTitle";
 
 const CampaignPerk = ({ showButton = false }) => {
   return (
     <div>
-      <div className="bg-white shadow-[-4px_4px_8px_rgba(226,226,226,0.2),_4px_4px_8px_rgba(226,226,226,0.2)] rounded-[10px] mb-[30px]">
+      <div className="bg-white shadow-campaign rounded-[10px] mb-[30px]">
         <div>
           <img
             src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Y2FtZXJhfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
@@ -18,16 +19,19 @@ const CampaignPerk = ({ showButton = false }) => {
           </div>
           <div className="flex flex-col gap-[15px]">
             <div>
-              <h3 className="text-xl font-semibold text-neutralText1">
+              <CampTitle className="text-xl font-semibold mb-1">
                 Special One Camera
-              </h3>
+              </CampTitle>
               <div className="flex items-center gap-[10px]">
-                <h3 className="text-xl font-semibold text-neutralText1">
+                <span className="text-xl font-semibold text-neutralText1">
                   $2,724 USD
-                </h3>
-                <p className="text-sm font-medium text-error">
-                  $1,504 USD (12% OFF)
-                </p>
+                </span>
+                <span className="text-sm font-medium text-error line-through">
+                  $1,504 USD
+                </span>
+                <span className="text-sm font-medium text-error">
+                  (12% OFF)
+                </span>
               </div>
             </div>
             <div className="flex flex-col">

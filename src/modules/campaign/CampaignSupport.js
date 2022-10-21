@@ -8,7 +8,7 @@ const CampaignSupport = () => {
   return (
     <div className="mb-[60px]">
       <h2 className="text-lg text-neutralText1 font-semibold mb-5">Support</h2>
-      <div className="bg-white shadow-[-4px_4px_8px_rgba(226,226,226,0.2),_4px_4px_8px_rgba(226,226,226,0.2)] rounded-[10px] px-6 py-7">
+      <div className="bg-white shadow-campaign rounded-[10px] px-6 py-7">
         <h1 className="text-xl text-neutralText3 text-center font-medium mb-7">
           Pledge without reward
         </h1>
