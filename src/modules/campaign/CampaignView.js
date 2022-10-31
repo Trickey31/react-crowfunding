@@ -16,12 +16,7 @@ import CampViewAuthor from "./parts/CampViewAuthor";
 const CampaignView = () => {
   return (
     <>
-      <div
-        className="gradient-banner h-[140px] bg-cover bg-no-repeat bg-center bg-opacity-40 rounded-[25px] flex items-center justify-center text-white text-[40px] font-bold mb-10"
-        style={{
-          backgroundImage: `url(/banner.png)`,
-        }}
-      >
+      <div className="gradient-banner h-[140px] bg-cover bg-no-repeat bg-center bg-opacity-40 rounded-[25px] flex items-center justify-center text-white text-[40px] font-bold mb-10">
         <h1>Education</h1>
       </div>
       <div className="flex items-start gap-10 w-full max-w-[1066px] mb-[125px]">

@@ -12,12 +12,22 @@ import Gap from "components/common/Gap";
 import { IconFunds } from "components/icons";
 import FormRow from "components/common/FormRow";
 import { Button } from "components/button";
+import { useEffect } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+import useOnChange from "hooks/useOnChange";
+import DatePicker from "react-date-picker";
 
 Quill.register("modules/imageUploader", ImageUploader);
 
+const categoriesData = ["architecture", "education"];
+
 const CampaignAddNew = () => {
-  const { control } = useForm();
+  const { control, setValue, handleSubmit } = useForm();
+  const [countries, setCountries] = useState([]);
   const [content, setContent] = useState("");
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
   const modules = useMemo(
     () => ({
       toolbar: [
@@ -44,6 +54,31 @@ const CampaignAddNew = () => {
     }),
     []
   );
+  const [filterCountry, setFilterCountry] = useOnChange();
+  useEffect(() => {
+    async function fetchCountry() {
+      if (!filterCountry) return;
+      try {
+        const response = await axios.get(
+          `https://restcountries.com/v3.1/name/${filterCountry}`
+        );
+        setCountries(response.data);
+      } catch (error) {
+        toast.error(error.message);
+      }
+    }
+    fetchCountry();
+  }, [filterCountry]);
+
+  const handleSelectOption = (name, value) => {
+    setValue(name, value);
+  };
+  const handleAddNew = (value) => {
+    console.log(
+      "🚀 ~ file: CampaignAddNew.js ~ line 77 ~ handleSubmit ~ value",
+      value
+    );
+  };
   return (
     <div className="bg-white rounded-[10px] px-[66px] py-10">
       <div className="mb-10 text-center">
@@ -51,7 +86,7 @@ const CampaignAddNew = () => {
           Create a Campaign 🚀
         </h1>
       </div>
-      <form>
+      <form onSubmit={handleSubmit(handleAddNew)}>
         <FormRow>
           <Field>
             <Label htmlFor="title">Campaign Tittle *</Label>
@@ -66,8 +101,15 @@ const CampaignAddNew = () => {
             <Dropdown>
               <Dropdown.Select placeholder="Select a category"></Dropdown.Select>
               <Dropdown.List>
-                <Dropdown.Option>Education</Dropdown.Option>
-                <Dropdown.Option>Architecture</Dropdown.Option>
+                {categoriesData.length > 0 &&
+                  categoriesData.map((category) => (
+                    <Dropdown.Option
+                      key={category}
+                      onClick={() => handleSelectOption("category", category)}
+                    >
+                      <span className="capitalize">{category}</span>
+                    </Dropdown.Option>
+                  ))}
               </Dropdown.List>
             </Dropdown>
           </Field>
@@ -121,7 +163,7 @@ const CampaignAddNew = () => {
             <Label htmlFor="prefilled">Amount Prefilled</Label>
             <Input
               control={control}
-              name="goal"
+              name="prefilled"
               placeholder="Amount Prefilled"
             ></Input>
             <p className="text-sm text-neutralText3 font-normal max-w-[387px]">
@@ -131,7 +173,7 @@ const CampaignAddNew = () => {
           </Field>
           <Field>
             <Label htmlFor="video">Video</Label>
-            <Input control={control} name="raised" placeholder="Video"></Input>
+            <Input control={control} name="video" placeholder="Video"></Input>
             <p className="text-sm text-neutralText3 font-normal">
               Place Youtube or Vimeo Video URL
             </p>
@@ -149,12 +191,25 @@ const CampaignAddNew = () => {
             </Dropdown>
           </Field>
           <Field>
-            <Label>Country</Label>
+            <Label htmlFor="country">Country</Label>
             <Dropdown>
               <Dropdown.Select placeholder="Select a country"></Dropdown.Select>
               <Dropdown.List>
-                <Dropdown.Option>Viet Nam</Dropdown.Option>
-                <Dropdown.Option>USA</Dropdown.Option>
+                <Dropdown.Search
+                  placeholder="Search your country"
+                  onChange={setFilterCountry}
+                ></Dropdown.Search>
+                {countries.length > 0 &&
+                  countries.map((country) => (
+                    <Dropdown.Option
+                      key={country?.name?.common}
+                      onClick={() =>
+                        handleSelectOption("country", country?.name?.common)
+                      }
+                    >
+                      {country?.name?.common}
+                    </Dropdown.Option>
+                  ))}
               </Dropdown.List>
             </Dropdown>
           </Field>
@@ -162,15 +217,19 @@ const CampaignAddNew = () => {
         <FormRow>
           <Field>
             <Label htmlFor="start">Start Date</Label>
-            <Input
-              control={control}
-              name="start"
-              placeholder="Start Date"
-            ></Input>
+            <DatePicker
+              onChange={setStartDate}
+              value={startDate}
+              format="dd/MM/yyyy"
+            />
           </Field>
           <Field>
             <Label htmlFor="end">End Date</Label>
-            <Input control={control} name="end" placeholder="End Date"></Input>
+            <DatePicker
+              onChange={setEndDate}
+              value={endDate}
+              format="dd/MM/yyyy"
+            />
           </Field>
         </FormRow>
         <div className="text-center mt-5">

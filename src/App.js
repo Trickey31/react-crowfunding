@@ -1,6 +1,8 @@
 import React, { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Modal from "react-modal";
+import LayoutPayment from "layout/LayoutPayment";
+import CheckoutPage from "pages/CheckoutPage";
 
 const SignUpPage = lazy(() => import("pages/SignUpPage"));
 const SignInPage = lazy(() => import("pages/SignInPage"));
@@ -41,6 +43,16 @@ function App() {
             path="/campaign/:slug"
             element={<CampaignView></CampaignView>}
           ></Route>
+        </Route>
+        <Route element={<LayoutPayment></LayoutPayment>}>
+          <Route
+            path="/checkout"
+            element={<CheckoutPage></CheckoutPage>}
+          ></Route>
+          {/* <Route
+            path="/shipping-address"
+            element={<ShippingPage></ShippingPage>}
+          ></Route> */}
         </Route>
         <Route path="/sign-up" element={<SignUpPage></SignUpPage>}></Route>
         <Route path="/sign-in" element={<SignInPage></SignInPage>}></Route>

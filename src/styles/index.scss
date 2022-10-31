@@ -36,11 +36,12 @@ input:focus + .error-input {
   }
 }
 .gradient-banner {
-  background: linear-gradient(
-    179.14deg,
-    rgba(32, 18, 63, 0) -7.14%,
-    #000000 87.01%
-  );
+  background-image: linear-gradient(
+      179.14deg,
+      rgba(32, 18, 63, 0.4) -7.14%,
+      rgba(0, 0, 0, 0.4) 87.01%
+    ),
+    url("https://images.unsplash.com/photo-1659948782675-9d4fadea983b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
 }
 .shadow-campaign {
   box-shadow: -4px 4px 8px rgba(226, 226, 226, 0.2),
@@ -55,4 +56,51 @@ input:focus + .error-input {
 }
 .scroll-hidden::-webkit-scrollbar {
   display: none;
+}
+body .react-date-picker {
+  @apply w-full border rounded-[10px] px-[25px] py-[15px] text-sm font-medium dark:text-white dark:bg-transparent placeholder:text-neutralText4 placeholder:font-medium dark:placeholder:text-neutralText3 text-neutralText1 border-whiteStroke dark:border-darkStroke;
+  height: 52px;
+  &__wrapper {
+    @apply border-none justify-between items-center;
+  }
+  &__clear-button {
+    @apply hidden;
+  }
+  &__inputGroup {
+    min-width: 0;
+    flex-grow: 0;
+  }
+  &__button {
+    padding: 0;
+  }
+}
+body {
+  .react-date-picker__calendar {
+    z-index: 50;
+  }
+  .react-date-picker__calendar .react-calendar {
+    @apply border-none shadow rounded-lg;
+  }
+  .react-calendar__navigation button:enabled:hover,
+  .react-calendar__navigation button:enabled:focus {
+    @apply bg-transparent;
+  }
+  .react-calendar__tile:not(.react-calendar__tile--active):enabled:hover,
+  .react-calendar__tile:not(.react-calendar__tile--active):enabled:focus {
+    @apply bg-transparent text-primary;
+  }
+  .react-calendar__tile:enabled:hover,
+  .react-calendar__tile:enabled:focus,
+  .react-calendar__tile--active,
+  .react-calendar__tile--active:hover {
+    @apply bg-primary text-white;
+  }
+  .react-calendar button,
+  .react-calendar button:enabled:hover {
+    @apply rounded-lg;
+  }
+  .react-calendar__tile--active:enabled:hover,
+  .react-calendar__tile--active:enabled:focus {
+    @apply bg-primary text-white;
+  }
 }
