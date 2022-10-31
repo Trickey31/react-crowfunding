@@ -1,5 +1,17 @@
 {
   "users": [],
   "categories": [],
-  "campaigns": []
+  "campaigns": [
+    {
+      "title": "",
+      "goal": "",
+      "raised": "",
+      "prefilled": "",
+      "video": "",
+      "content": "",
+      "startDate": "2022-10-31T17:15:54.875Z",
+      "endDate": "2022-10-31T17:15:54.875Z",
+      "id": 1
+    }
+  ]
 }
