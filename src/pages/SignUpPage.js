@@ -12,6 +12,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { withErrorBoundary } from "react-error-boundary";
 import ErrorComponent from "components/error/ErrorComponent";
 import useToggleValue from "hooks/useToggleValue";
+import { useDispatch } from "react-redux";
+import { authRegister } from "store/auth/auth-slice";
 
 const schema = yup.object({
   name: yup.string().required("Please enter your full name"),
@@ -29,11 +31,16 @@ const SignUpPage = () => {
   const {
     handleSubmit,
     control,
-    formState: { isSubmitting, isValid, errors },
+    formState: { errors },
+    reset,
   } = useForm({ resolver: yupResolver(schema), mode: "onSubmit" });
   const { value: acceptTerm, handleToggleValue: handleToggleTerm } =
     useToggleValue();
-  const handleSignUp = (values) => {};
+  const dispatch = useDispatch();
+  const handleSignUp = (values) => {
+    dispatch(authRegister(values));
+    reset({ name: "", email: "", password: "" });
+  };
   return (
     <LayoutAuthentication heading="Sign Up">
       <p className="text-sm text-neutralText3 font-normal mb-[25px] lg:mb-[30px] text-center">

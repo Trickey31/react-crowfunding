@@ -1,5 +1,27 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": 1,
+      "name": "Tiến Thành",
+      "password": "$2b$10$A.JKwEl70Ph40cMPEQYv5.7QxGw8Jj0ditAirytdWfcsg/XRJ2BAa",
+      "email": "tienthanh@gmail.com",
+      "refreshToken": null
+    },
+    {
+      "id": 2,
+      "name": "Xuan Ninh",
+      "password": "$2b$10$FkGyryih5TvY25k6fO27KeWw9FtJqAT3HfNyqs.HkblrkrLUgup/S",
+      "email": "xuanninh@gmail.com",
+      "refreshToken": null
+    },
+    {
+      "id": 3,
+      "name": "Nguyen Van A",
+      "password": "$2b$10$cPRVydQQ/oubylm6rw9vaOcyt7sSfy6gFjRu3moSio1wO38a9Qw9K",
+      "email": "nguyenvana@gmail.com",
+      "refreshToken": null
+    }
+  ],
   "categories": [],
   "campaigns": [
     {
