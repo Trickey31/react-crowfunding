@@ -19,6 +19,10 @@ export function* handleAuthLogin({ payload }) {
       saveToken(accessToken, refreshToken);
     }
   } catch (error) {
-    toast.error(error);
+    const response = error.response.data;
+    if (response.statusCode === 403) {
+      toast.error(response.error.message);
+      return;
+    }
   }
 }
