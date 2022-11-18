@@ -1,7 +1,13 @@
 import { toast } from "react-toastify";
-import { call } from "redux-saga/effects";
+import { call, put } from "redux-saga/effects";
 import { saveToken } from "utils/auth";
-import { requestAuthLogin, requestAuthRegister } from "./auth-requests";
+import {
+  requestAuthFetchMe,
+  requestAuthLogin,
+  requestAuthRefreshToken,
+  requestAuthRegister,
+} from "./auth-requests";
+import { authUpdateUser } from "./auth-slice";
 
 export default function* handleAuthRegister({ payload }) {
   try {
@@ -14,27 +20,41 @@ export default function* handleAuthRegister({ payload }) {
 function* handleAuthLogin({ payload }) {
   try {
     const response = yield call(requestAuthLogin, payload);
-    console.log(
-      "🚀 ~ file: auth-handler.js ~ line 17 ~ function*handleAuthLogin ~ response",
-      response
-    );
     if (response?.data) {
       const { accessToken, refreshToken } = response.data;
       saveToken(accessToken, refreshToken);
+      yield call(handleAuthFetchMe, { payload: accessToken });
     }
   } catch (error) {
-    console.log(error);
-
-    // if (response.statusCode === 403) {
-    //   toast.error(response.error.message);
-    //   return;
-    // }
+    const response = error.response.data;
+    if (response.statusCode === 403) {
+      toast.error(response.error.message);
+      return;
+    }
   }
 }
 function* handleAuthFetchMe({ payload }) {
   try {
-    yield 1;
+    const response = yield call(requestAuthFetchMe, payload);
+    if (response.status === 200) {
+      yield put(
+        authUpdateUser({
+          user: response.data,
+          accessToken: payload,
+        })
+      );
+    }
+  } catch (error) {}
+}
+function* handleAuthRefreshToken({ payload }) {
+  try {
+    const response = yield call(requestAuthRefreshToken, payload);
+    if (response?.data) {
+      const { accessToken, refreshToken } = response.data;
+      saveToken(accessToken, refreshToken);
+      yield call(handleAuthFetchMe, { payload: accessToken });
+    }
   } catch (error) {}
 }
 
-export { handleAuthLogin, handleAuthFetchMe };
+export { handleAuthLogin, handleAuthFetchMe, handleAuthRefreshToken };

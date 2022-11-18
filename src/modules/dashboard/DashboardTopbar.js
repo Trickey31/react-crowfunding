@@ -18,7 +18,11 @@ const DashboardTopbar = () => {
       </div>
       <div className="flex items-center justify-end flex-1 gap-10">
         <DashboardFund></DashboardFund>
-        <Button kind="secondary" className="font-semibold px-[26px]">
+        <Button
+          kind="secondary"
+          href="/start-campaign"
+          className="font-semibold px-[26px]"
+        >
           Start a campaign
         </Button>
         <DashboardAvatar></DashboardAvatar>
