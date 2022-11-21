@@ -65,7 +65,7 @@ const DashboardSidebar = () => {
         if (item.url === "/logout") {
           return (
             <button
-              onClick={() => dispatch(authLogOut)}
+              onClick={() => dispatch(authLogOut())}
               className={`${navlinkClass} text-icon`}
             >
               <span>{item.icon}</span>
