@@ -6,7 +6,7 @@ import CheckoutPage from "pages/CheckoutPage";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { authRefreshToken, authUpdateUser } from "store/auth/auth-slice";
-import { getToken } from "utils/auth";
+import { getToken, logOut } from "utils/auth";
 
 const SignUpPage = lazy(() => import("pages/SignUpPage"));
 const SignInPage = lazy(() => import("pages/SignInPage"));
@@ -39,7 +39,10 @@ function App() {
     } else {
       const { refresh_token } = getToken();
       if (refresh_token) dispatch(authRefreshToken(refresh_token));
-      else dispatch(authUpdateUser({}));
+      else {
+        dispatch(authUpdateUser({}));
+        logOut();
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
