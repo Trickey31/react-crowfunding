@@ -1,10 +1,20 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { withErrorBoundary } from "react-error-boundary";
 import ErrorComponent from "../components/error/ErrorComponent";
+import { useSelector } from "react-redux";
 
 const LayoutAuthentication = ({ children, heading }) => {
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth);
+  useEffect(() => {
+    if (user && user.email) {
+      navigate("/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+  if (user && user.email) return null;
   return (
     <div className="w-full min-h-screen bg-liteBG dark:bg-darkBG p-10 relative isolate">
       <img

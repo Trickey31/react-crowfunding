@@ -5,12 +5,11 @@ import { Label } from "components/label";
 import LayoutAuthentication from "layout/LayoutAuthentication";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { authLogin } from "store/auth/auth-slice";
-import { useEffect } from "react";
 
 const schema = yup.object({
   email: yup.string().email("").required("Please enter your email"),
@@ -23,18 +22,10 @@ const SignInPage = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema), mode: "onSubmit" });
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.auth);
   const handleSignIn = (values) => {
     dispatch(authLogin(values));
   };
-  useEffect(() => {
-    if (user && user.id) {
-      navigate("/");
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
   return (
     <LayoutAuthentication heading="Welcome Back!">
       <p className="text-sm text-neutralText3 font-normal mb-[25px] lg:mb-[30px] text-center">
