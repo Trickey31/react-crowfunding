@@ -38,7 +38,7 @@ const SignUpPage = () => {
     useToggleValue();
   const dispatch = useDispatch();
   const handleSignUp = (values) => {
-    dispatch(authRegister(values));
+    dispatch(authRegister({ ...values, permissions: [] }));
     reset({ name: "", email: "", password: "" });
   };
   return (

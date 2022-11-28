@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { authRefreshToken, authUpdateUser } from "store/auth/auth-slice";
 import { getToken, logOut } from "utils/auth";
+import RequiredAuthPage from "pages/RequiredAuthPage";
+import UnauthorizedPage from "pages/UnauthorizedPage";
 
 const SignUpPage = lazy(() => import("pages/SignUpPage"));
 const SignInPage = lazy(() => import("pages/SignInPage"));
@@ -50,15 +52,23 @@ function App() {
     <Suspense>
       <Routes>
         <Route element={<LayoutDashboard></LayoutDashboard>}>
+          <Route
+            path="/unauthorized"
+            element={<UnauthorizedPage></UnauthorizedPage>}
+          ></Route>
           <Route path="/" element={<DashboardPage></DashboardPage>}></Route>
           <Route
             path="/campaign"
             element={<CampaignPage></CampaignPage>}
           ></Route>
           <Route
-            path="/start-campaign"
-            element={<StartCampaignPage></StartCampaignPage>}
-          ></Route>
+            element={<RequiredAuthPage permission={[]}></RequiredAuthPage>}
+          >
+            <Route
+              path="/start-campaign"
+              element={<StartCampaignPage></StartCampaignPage>}
+            ></Route>
+          </Route>
           <Route
             path="/campaign/:slug"
             element={<CampaignView></CampaignView>}

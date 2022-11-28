@@ -12,7 +12,6 @@ const authSlice = createSlice({
       ...action.payload,
     }),
     authUpdateUser: (state, action) => ({
-      ...state,
       user: action.payload.user,
       accessToken: action.payload.accessToken,
     }),
