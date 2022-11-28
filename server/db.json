@@ -1,1 +1,32 @@
-{"users":[{"id":1,"name":"Tiến Thành","password":"$2b$10$04lOeRKZUr1tQrEfDGpdEuXbQTkl95anFvp3V4NkzCrLhP0jVNCrK","email":"tienthanh@gmail.com","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlRp4bq_biBUaMOgbmgiLCJpYXQiOjE2NjkyNTc3NDIsImV4cCI6MTY2OTQzMDU0Mn0.pQXWv6dnrNZefyUxXGOODsKs5vtaNAKl-nCayOrD574"},{"id":2,"name":"Xuan Ninh","password":"$2b$10$WchAB2BiPLUsJQkqpsN0WuQu9zpsloU2wbW9QgDE/VJOc1fycXp0u","email":"xuanninh@gmail.com","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ilh1YW4gTmluaCIsImlhdCI6MTY2ODI2NDkxMywiZXhwIjoxNjY4NDM3NzEzfQ.bBxcz0zoscdTr-IhmmPf7gjQS3MWRasny_dHIKjMcPM"}],"categories":[],"campaigns":[{"title":"","goal":"","raised":"","prefilled":"","video":"","content":"","startDate":"2022-10-31T17:15:54.875Z","endDate":"2022-10-31T17:15:54.875Z","id":1}]}
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Tiến Thành",
+      "password": "$2b$10$04lOeRKZUr1tQrEfDGpdEuXbQTkl95anFvp3V4NkzCrLhP0jVNCrK",
+      "email": "tienthanh@gmail.com",
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlRp4bq_biBUaMOgbmgiLCJpYXQiOjE2Njk2MjY0MzEsImV4cCI6MTY2OTc5OTIzMX0.wHApb8X9f6CM2rQQ8_-A7Nr5rKIt3HB6vqh_IAMxv4k"
+    },
+    {
+      "id": 2,
+      "name": "Xuan Ninh",
+      "password": "$2b$10$WchAB2BiPLUsJQkqpsN0WuQu9zpsloU2wbW9QgDE/VJOc1fycXp0u",
+      "email": "xuanninh@gmail.com",
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ilh1YW4gTmluaCIsImlhdCI6MTY2ODI2NDkxMywiZXhwIjoxNjY4NDM3NzEzfQ.bBxcz0zoscdTr-IhmmPf7gjQS3MWRasny_dHIKjMcPM"
+    }
+  ],
+  "categories": [],
+  "campaigns": [
+    {
+      "title": "",
+      "goal": "",
+      "raised": "",
+      "prefilled": "",
+      "video": "",
+      "content": "",
+      "startDate": "2022-10-31T17:15:54.875Z",
+      "endDate": "2022-10-31T17:15:54.875Z",
+      "id": 1
+    }
+  ]
+}

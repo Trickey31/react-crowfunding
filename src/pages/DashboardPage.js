@@ -1,12 +1,33 @@
 import Gap from "components/common/Gap";
 import Heading from "components/common/Heading";
+import useAxiosPrivate from "hooks/useAxiosPrivate";
 import CampaignFeature from "modules/campaign/CampaignFeature";
 import CampaignGrid from "modules/campaign/CampaignGrid";
 import CampaignItem from "modules/campaign/CampaignItem";
 import React from "react";
+import { useEffect } from "react";
 import { v4 } from "uuid";
 
 const DashboardPage = () => {
+  const axiosPrivate = useAxiosPrivate();
+  useEffect(() => {
+    async function fetchCampaign() {
+      try {
+        const response = await axiosPrivate.get("/api/campaigns");
+        console.log(
+          "🚀 ~ file: DashboardPage.js ~ line 17 ~ fetchCampaign ~ response",
+          response
+        );
+      } catch (error) {
+        console.log(
+          "🚀 ~ file: DashboardPage.js ~ line 22 ~ fetchCampaign ~ error",
+          error
+        );
+      }
+    }
+    fetchCampaign();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <>
       <Heading number={4}>Your campaign</Heading>
